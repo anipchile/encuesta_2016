@@ -1,0 +1,278 @@
+---
+title: "Análisis de datos de la encuesta de personas"
+author: "Cristian Bravo Lillo (cristian@bravolillo.xyz)"
+date: "Último update: `r date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(xtable)
+clio.root = './'
+source('lib/functions.general.r')
+source('lib/functions.graphs.r')
+opts_chunk$set(echo = TRUE)
+```
+
+## Datos de la muestra
+```{r, echo=FALSE}
+
+	#> Leemos los datos
+	personas <- read.csv('data/personas.csv')
+	trabajos <- read.csv('data/trabajos.csv')
+
+	#> Al leer desde un CSV, se pierde toda la informacion relacionada con variables. Asi que tenemos que volver a crearla.
+	personas$ins.cuantostrabajos <- as.numeric(personas$ins.cuantostrabajos)
+	personas$ins.cuantostrabajos[ is.na(personas$ins.cuantostrabajos) ] <- 5 # Esta es la unica persona que respondio "5 o más de 5"
+	personas$ins.ingreso <- factor(personas$ins.ingreso,
+																 levels=c(
+																 	'Menos de 400.000',
+																 	'Entre 400.001 y 700.000',
+																 	'Entre 700.001 y 1.200.000',
+																 	'Entre 1.200.001 y 2.000.000',
+																 	'Entre 2.000.001 y 3.500.000',
+																 	'Entre 3.500.001 y 6.000.000',
+																 	'Más de 6.000.000'
+																 ))
+
+	#> Creamos algunas variables necesarias para calculos intermedios
+	personas.enchile <- personas[
+		personas$bio.resideenchile,
+		c('Response.ID','bio.edad','bio.genero','bio.essostenedor', 'bio.cuantoshijos',
+		  'ins.ingreso','ins.tienetrabajo','ins.cuantostrabajos','ins.anhelo.academico','ins.prom.percepcion',
+		  'aporte.numarticulos','aporte.numlibros','aporte.numproyectos.gana',
+		  'sit.tiene.msc','sit.tiene.phd','sit.tiene.pos'
+		  )
+		]
+	row.names(personas.enchile) <- NULL
+
+	#> /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	#> /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+```
+En total, tenemos `r nrow(personas)` encuestados, que reportaron tener `r nrow(trabajos)` trabajos. Las siguientes dos tablas muestran la frecuencia de encuestados con y sin magíster, con y sin doctorado, y con y sin postdoctorado.
+```{r, echo=FALSE}
+
+	#> Num. de tablas y graficos
+	numtabla <- 1
+	numgrafico <- 1
+
+	#> Tabla de contingencia
+	# thesecols <- c('sit.cursando.posgrado','sit.tiene.posgrado','sit.cursando.pos','sit.tiene.pos')
+	# theserownames <- c('No cursa posgrado,<br>no tiene posgrado','No cursa posgrado,<br>tiene posgrado',
+	# 			'Cursa posgrado,<br>no tiene posgrado','cursa posgrado,<br>tiene posgrado')
+	# thesecolnames <- c('No cursa postdoc,<br>no tiene postdoc','No cursa postdoc,<br>tiene postdoc',
+	# 			 'Cursa postdoc,<br>no tiene postdoc','Cursa postdoc,<br>tiene postdoc')
+	# largetable <- as.matrix(ftable(personas[,thesecols], row.vars = c('sit.cursando.posgrado','sit.tiene.posgrado')))
+	# rownames(largetable) <- theserownames
+	# colnames(largetable) <- thesecolnames
+	# knitr::kable(largetable, caption=paste('Tabla ',numtabla,': Contingencia de posgrados y postdocs (frecuencia)', sep=''))
+	# numtabla <- numtabla+1
+	# rm(largetable,thesecols,theserownames,thesecolnames)
+
+	largetable <- as.matrix(ftable(list(
+		personas$sit.tiene.msc[ personas$bio.genero=='Femenino' ],
+		personas$sit.tiene.phd[ personas$bio.genero=='Femenino' ],
+		personas$sit.tiene.pos[ personas$bio.genero=='Femenino' ]
+	), row.vars = c(1,2)))
+	largetable <- rbind(largetable, colSums(largetable))
+	largetable <- cbind(largetable, rowSums(largetable))
+	rownames(largetable) <- c('No tiene MsC, No tiene PhD', 'No tiene MsC, Tiene PhD', 'Tiene MsC, No tiene PhD', 'Tiene MsC, Tiene PhD', 'Subtotal')
+	colnames(largetable) <- c('No tiene Postdoc', 'Tiene Postdoc', 'Subtotal')
+	knitr::kable(largetable,
+			   caption=paste('Tabla ',numtabla,': Contingencia de MsC, PhDs y Postdocs (%) en mujeres', sep = ''))
+	numtabla <- numtabla+1
+	rm(largetable)
+
+	largetable <- as.matrix(ftable(list(
+		personas$sit.tiene.msc[ personas$bio.genero=='Masculino' ],
+		personas$sit.tiene.phd[ personas$bio.genero=='Masculino' ],
+		personas$sit.tiene.pos[ personas$bio.genero=='Masculino' ]
+	), row.vars = c(1,2)))
+	largetable <- rbind(largetable, colSums(largetable))
+	largetable <- cbind(largetable, rowSums(largetable))
+	rownames(largetable) <- c('No tiene MsC, No tiene PhD', 'No tiene MsC, Tiene PhD', 'Tiene MsC, No tiene PhD', 'Tiene MsC, Tiene PhD', 'Subtotal')
+	colnames(largetable) <- c('No tiene Postdoc', 'Tiene Postdoc', 'Subtotal')
+	knitr::kable(largetable,
+			   caption=paste('Tabla ',numtabla,': Contingencia de MsC, PhDs y Postdocs (%) en hombres', sep = ''))
+	numtabla <- numtabla+1
+	rm(largetable)
+
+```
+
+## ¿Qué factores influyen en que la persona tenga trabajo?
+
+El siguiente análisis se realizó sólo sobre las personas que declaran residir en Chile (n = `r nrow(personas.enchile)`).
+
+El cuadro siguiente muestra una regresión logística sobre la variable binaria de si la persona tiene trabajo. Las variables de entrada son:
+
+* la edad,
+* el género,
+* el número de artículos que la persona ha escrito,
+* el número de libros que la persona ha escrito,
+* el número de proyectos que la persona ha ganado,
+* si la persona tiene o no un máster (MsC),
+* si la persona tiene o no un doctorado (PhD),
+* si la persona tiene o no un postdoctorado.
+
+Los dos factores que influyen significativamente sobre el que la persona tenga trabajo son el número de artículos (aporte.numarticulos), y el que la persona tenga un doctorado (sit.tiene.phd). Ambos factores influyen positivamente sobre el que la persona tenga trabajo.
+
+La regresión anterior no es muy robusta, sin embargo. Se realizó un diagnóstico de la regresión (no mostrado), y existen puntos con una distancia de Cook muy grande (y por tanto con un alto nivel de influencia), pero que no deben ser eliminados porque no son errores.
+
+```{r, echo=FALSE}
+#> Analisis: Reg. Log. sobre personas$ins.tienetrabajo con variables sociodemograficas y de aporte. Que factores influyen mas en que
+#> la persona tenga trabajo?
+
+
+reg <- glm(formula = ins.tienetrabajo ~ bio.edad + bio.genero + aporte.numarticulos + aporte.numlibros + aporte.numproyectos.gana
+		 + sit.tiene.msc + sit.tiene.phd + sit.tiene.pos,
+		 data = personas.enchile, family = binomial)
+summary(reg)
+
+#plot(reg, las=1)
+#personas.enchile <- cbind(personas.enchile, distance = cooks.distance(reg))
+#personas.enchile <- personas.enchile[order(personas.enchile$distance, decreasing = T),]
+#personas.enchile[ personas.enchile$distance > 4/nrow(personas.enchile), ]
+```
+
+El análisis siguiente es similar al anterior, pero sobre la cantidad de trabajos que tiene cada persona. La regresión aquí es lineal ordinaria. La regresión completa no es significativa.
+
+```{r, echo=FALSE}
+#> Analisis: Alguna clase de regresion sobre personas$ins.cuantostrabajos con variables sociodemograficas de entrada. Que
+#> factores influyen mas en la cantidad de trabajos?
+
+reg <- lm(formula = ins.cuantostrabajos ~ bio.edad + bio.genero + aporte.numarticulos + aporte.numlibros + aporte.numproyectos.gana
+		+ sit.tiene.msc + sit.tiene.phd + sit.tiene.pos,
+		data = personas.enchile)
+summary(reg)
+
+```
+
+## ¿Qué factores influyen en que la persona tenga un trabajo estable?
+
+En el análisis siguiente, se dividieron los valores de la variable "tipo de contrato" en dos:
+
+* Trabajo estable: 'Contrato a honorarios', 'Contrato a plazo fijo' y 'Contrato a plazo indefinido'.
+* Trabajo no estable: Todo el resto de los valores.
+
+Con esa definición, se realizó una regresión logística sobre el tener un trabajo estable. Las siguientes son las variables de entrada:
+
+* Género,
+* Edad,
+* Si la persona tiene un máster (MsC),
+* Si la persona tiene un doctorado (PhD),
+* Si la persona tiene un postdoctorado,
+* Si la persona es sostenedor/a de su hogar,
+* Cuántos hijos tiene la persona,
+* Si era su anhelo el ser académico/a.
+
+De las anteriores, las variables que influyen significativamente sobre el tener un trabajo estable son las siguientes:
+
+* Las personas con postdoctorado (sit.tiene.pos)
+* Los hombres (bio.genero='Masculino')
+* La edad (bio.edad)
+
+```{r, echo=FALSE}
+#> Analisis: Agrupar los tipos en trabajos$trabajo.tipocontrato en variable "trabajo_estable?" (booleana), y realizar una
+#> reg. log. sobre la variable, con variables SDs de entrada. Que factores influyen mas en que la persona obtenga un "trabajo
+#> estable"?
+
+trabajos2 <- trabajos
+trabajos2$trabajo.estable <- FALSE
+trabajos2$trabajo.estable[ trabajos2$trabajo.tipocontrato %in% c('Contrato a honorarios','Contrato de trabajo a plazo fijo','Contrato de trabajo a plazo indefinido') ] <- TRUE
+
+continuo <- merge(
+	personas.enchile,
+	trabajos2[,c('Response.ID','trabajo.tipocontrato','trabajo.estable')],
+	by='Response.ID'
+)
+
+reg <- glm(
+	formula = trabajo.estable ~ bio.genero + bio.edad + sit.tiene.msc + sit.tiene.phd + sit.tiene.pos + bio.essostenedor + bio.cuantoshijos + ins.anhelo.academico,
+	data = continuo, family = binomial
+)
+summary(reg)
+```
+
+## ¿Explica el salario recibido la percepción de la inserción?
+
+En el siguiente cuadro se muestra una regresión lineal simple de varios factores sociodemográficos (edad, género, si la persona es sostenedor de su hogar, cuántos hijos tiene, si tiene trabajo, si era su anhelo ser académico) sobre la percepción de inserción. El set de datos es restringido sólo a personas que residen en Chile (la inserción se produce sólo sobre aquellas personas que han vuelto al país), y que poseen alguna percepción de su inserción. No se incluye el ingreso porque las variables "tiene trabajo" e "ingreso" están condicionadas una a la otra.
+
+Se realizó un diagnóstico de la regresión (no mostrado). A pesar de que existen puntos que tienen una influencia muy alta (medida a través de la distancia de Cook, bajo el criterio 4/n), no se eliminaron porque no son errores.
+
+Lo que se puede colegir de la regresión es lo siguiente:
+
+* El tener trabajo (ins.tienetrabajo=TRUE) influye significativa y fuertemente sobre la percepción de inserción: las personas que tienen trabajo tienen una percepción de inserción 1.8 puntos más alta que las personas que no tienen trabajo.
+* El ser sostenedor del hogar propio (bio.essostenedor=TRUE) influye significativamente en la percepción de inserción.
+* Tanto el número de hijos (bio.cuantoshijos) como el género (bio.genero='Masculino') influyen significativamente sobre la percepción de inserción.
+* El modelo completo es significativo (p < 2.2 * 10^-16); sin embargo, explica sólo alrededor del 19% de la variabilidad en la percepción de inserción.
+
+```{r, echo=FALSE}
+summary(reg <- lm(
+	formula = ins.prom.percepcion ~ bio.edad + bio.genero + bio.essostenedor + bio.cuantoshijos + ins.tienetrabajo + ins.anhelo.academico,
+	data = personas.enchile)
+)
+
+#plot(reg, las = 1)
+#personas.enchile <- cbind(personas.enchile, distance = cooks.distance(reg))
+#personas.enchile <- personas.enchile[order(personas.enchile$distance, decreasing = T),]
+#personas.enchile[ personas.enchile$distance > 4/nrow(personas.enchile), ]
+```
+
+El modelo siguiente analiza la influencia de los mismos factores anteriores, pero sólo para las personas que tienen trabajo; se agregó el ingreso como variable de entrada.
+
+El único factor significativo en este caso es el ingreso (as.numeric(ins.ingreso), que representa el correlativo del tramo de ingreso). El modelo completo es significativo, y explica alrededor del 13% de la variabilidad de la percepción de inserción.
+
+```{r, echo=FALSE}
+summary(reg <- lm(
+	formula = ins.prom.percepcion ~ bio.edad + bio.genero + bio.essostenedor + bio.cuantoshijos + ins.anhelo.academico + as.numeric(ins.ingreso),
+	data = personas.enchile[ personas.enchile$ins.tienetrabajo, ])
+)
+
+#plot(reg, las = 1)
+#personas.enchile <- cbind(personas.enchile, distance = cooks.distance(reg))
+#personas.enchile <- personas.enchile[order(personas.enchile$distance, decreasing = T),]
+#personas.enchile[ personas.enchile$distance > 4/nrow(personas.enchile), ]
+```
+
+<!-- En el gráfico `r numgrafico` se muestra una relación directa significativa entre el nivel de ingreso y la satisfacción con ese nivel de ingresos. Las "muescas" en cada boxplot muestra la mayor concentración de datos. Si las muescas de dos boxplots no se sobreponen, esto es "fuerte evidencia" de que las medianas de los dos grupos son significativamente distintas (Chambers et al, 1983). La relación encontrada es razonable y esperable; este gráfico sólo demuestra que los encuestados tienen un comportamiento racional. -->
+
+<!-- ```{r, echo=FALSE} -->
+
+<!-- #> Relacion entre ingresos y satisfaccion con los ingresos? -->
+<!-- par(las=1, mar=c(2.5, 7.8, 2.5, 0.5), mgp=c(1.5,0.4,0)) -->
+<!-- boxplot(as.numeric(ins.ingreso.satisfecho) ~ as.factor(ins.ingreso), data = personas, -->
+<!-- 	   horizontal=T, cex.axis=0.7, cex.lab=0.9, cex.main=0.9, notch=T, -->
+<!-- 	   xlab='Satisfacción con el ingreso', -->
+<!-- 	   main=paste('Gráfico ',numgrafico,': Satisfacción con el ingreso, por nivel de ingreso', sep='')) -->
+<!-- numgrafico <- numgrafico+1 -->
+<!-- ``` -->
+
+<!-- El gráfico `r numgrafico` muestra la relación directa entre el promedio de percepción de inserción y el nivel de ingreso autoreportado. Dado que ambas variables son ordinales, se agregó una función de jittering para facilitar la apreciación de puntos sobrepuestos. -->
+<!-- ```{r, echo=FALSE} -->
+
+<!-- par(las=1, mar=c(2.5, 7.8, 2.5, 0.5), mgp=c(1.5,0.4,0)) -->
+<!-- plot( -->
+<!-- 	jitter(personas$ins.prom.percepcion), jitter(as.numeric(personas$ins.ingreso)), -->
+<!-- 	pch=16, cex.axis=0.7, cex.lab=0.9, cex.main=0.9, -->
+<!-- 	xlab='Percepción de inserción', yaxt='n', ylab='', -->
+<!-- 	main=paste('Gráfico ',numgrafico,': Promedio de percepción de inserción por nivel de ingreso', sep='') -->
+<!-- ) -->
+<!-- axis(2, at=1:7, labels=levels(personas$ins.ingreso), cex.axis=0.7) -->
+<!-- numgrafico <- numgrafico+1 -->
+<!-- ``` -->
+
+El gráfico `r numgrafico` muestra la relación entre la percepción de inserción y el nivel de ingreso recibido a través de un boxplot. El hecho de que el grupo de ingreso más alto tenga un promedio de percepción más bajo probablemente no tiene ningún significado especial.
+```{r, echo=FALSE}
+
+#> Relacion entre ingresos y promedio de percepcion de insercion.
+par(las=1, mar=c(2.5, 7.8, 2.5, 0.5), mgp=c(1.5,0.4,0))
+boxplot(
+	personas$ins.prom.percepcion ~ as.numeric(personas$ins.ingreso),
+	horizontal=T, cex.axis=0.7, cex.lab=0.9, cex.main=0.9,
+	names = levels(personas$ins.ingreso),
+	xlab = 'Promedio de percepción de inserción',
+	main=paste('Gráfico ',numgrafico,': Promedio de percepción de inserción, por nivel de ingreso', sep='')
+)
+numgrafico <- numgrafico+1
+```
