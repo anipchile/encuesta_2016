@@ -16,3 +16,7 @@ El directorio **reporte/** contiene un reporte de la encuesta en [LaTeX](https:/
 Lo anterior generará el archivo **reporte-2016.pdf**.
 
 El directorio **analisis/** contiene código en [R](https://www.r-project.org/) que permite leer los datos contenidos en **analisis/data/** y generar tablas y gráficos para el reporte anterior.
+
+Para generar las tablas y gráficos (asumiendo un ambiente con R 3.4.0 o superior instalado, con la librería 'xtable'):
+
+	% R --no-save < analisis.r
