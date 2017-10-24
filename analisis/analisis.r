@@ -1,3 +1,12 @@
+#> -------------------------------------------------------------------------------------------
+#> Proyecto: Primera Encuesta de Inserción de Doctores, ANIP 2016
+#> Archivo: analisis.r
+#> Autor: Cristian Bravo Lillo <cristian@bravolillo.xyz>
+#
+#> Este archivo lee los archivos data/personas.csv y data/trabajos.csv generados por cleaning.r
+#> y genera tablas y gráficos en ../reporte/tablas/ y ../reporte/graficos/.
+#> -------------------------------------------------------------------------------------------
+
 library(xtable)
 
 clio.root = './'
@@ -49,7 +58,7 @@ thistable <- xtable(largetable,
 										caption='Número de encuestados, según si poseen posgrado y/o postdocs.',
 										label='tab:count',
 										align=c('|p{3cm}|','r|','r|','r|','r|'), digits=0)
-print(thistable, file=paste(out.path,'tablas/tab_count1.tex', sep=''))
+print(thistable, file=paste(out.path,'tablas/tab-count1.tex', sep=''))
 
 #> Tabla de doble entrada: número de mujeres/hombres con MsC y/o PhD
 writeCountTable <- function(gender, thiscaption, thislabel, thisfile) {
@@ -96,7 +105,11 @@ rm(reg,thistable)
 reg <- lm(formula = ins.cuantostrabajos ~ bio.edad + bio.genero + aporte.numarticulos + aporte.numlibros + aporte.numproyectos.gana
 					+ sit.tiene.msc + sit.tiene.phd + sit.tiene.pos,
 					data = personas.enchile)
-summary(reg)
+thistable <- xtable(summary(reg),
+										caption='¿Qué factores influyen más en la cantidad de trabajos que tienen las personas?',
+										label='tab:reg2')
+print(thistable, file=paste(out.path, 'tablas/tab-reg2.tex', sep=''))
+rm(reg,thistable)
 
 #> Analisis: Agrupar los tipos en trabajos$trabajo.tipocontrato en variable "trabajo_estable?" (booleana), y realizar una
 #> reg. log. sobre la variable, con variables SDs de entrada. Que factores influyen mas en que la persona obtenga un "trabajo
@@ -116,29 +129,40 @@ reg <- glm(
 		bio.essostenedor + bio.cuantoshijos + ins.anhelo.academico,
 	data = continuo, family = binomial
 )
-summary(reg)
+thistable <- xtable(summary(reg),
+										caption='¿Qué factores influyen más en que la persona tenga un trabajo \\emph{estable}?',
+										label='tab:reg3')
+print(thistable, file=paste(out.path, 'tablas/tab-reg3.tex', sep=''))
+rm(reg,thistable)
 
 #> ¿Explica el salario recibido la percepción de la inserción?
-summary(reg <- lm(
+reg <- lm(
 	formula = ins.prom.percepcion ~ bio.edad + bio.genero + bio.essostenedor + bio.cuantoshijos
 		+ ins.tienetrabajo + ins.anhelo.academico,
 	data = personas.enchile)
-)
+thistable <- xtable(summary(reg),
+										caption='¿Explica el salario recibido la percepción de inserción? Este análisis se realiza para todo el universo de personas.',
+										label='tab:reg4')
+print(thistable, file=paste(out.path, 'tablas/tab-reg4.tex', sep=''))
+rm(reg,thistable)
 
 #> Este análisis es el mismo anterior, pero solo para las personas que tienen trabajo
-summary(reg <- lm(
+reg <- lm(
 	formula = ins.prom.percepcion ~ bio.edad + bio.genero + bio.essostenedor + bio.cuantoshijos
 		+ ins.anhelo.academico + as.numeric(ins.ingreso),
 	data = personas.enchile[ personas.enchile$ins.tienetrabajo, ])
-)
+thistable <- xtable(summary(reg),
+										caption='¿Explica el salario recibido la percepción de inserción? Este análisis se realiza sólo para las personas que poseen trabajo.',
+										label='tab:reg5')
+print(thistable, file=paste(out.path, 'tablas/tab-reg5.tex', sep=''))
+rm(reg,thistable)
 
-#>
 #> Relacion entre ingresos y promedio de percepcion de insercion.
-par(las=1, mar=c(2.5, 7.8, 2.5, 0.5), mgp=c(1.5,0.4,0))
-boxplot(
-	personas$ins.prom.percepcion ~ as.numeric(personas$ins.ingreso),
-	horizontal=T, cex.axis=0.7, cex.lab=0.9, cex.main=0.9,
-	names = levels(personas$ins.ingreso),
-	xlab = 'Promedio de percepción de inserción',
-	main=paste('Gráfico ',numgrafico,': Promedio de percepción de inserción, por nivel de ingreso', sep='')
-)
+# par(las=1, mar=c(2.5, 7.8, 2.5, 0.5), mgp=c(1.5,0.4,0))
+# boxplot(
+# 	personas$ins.prom.percepcion ~ as.numeric(personas$ins.ingreso),
+# 	horizontal=T, cex.axis=0.7, cex.lab=0.9, cex.main=0.9,
+# 	names = levels(personas$ins.ingreso),
+# 	xlab = 'Promedio de percepción de inserción',
+# 	main=paste('Gráfico ',numgrafico,': Promedio de percepción de inserción, por nivel de ingreso', sep='')
+# )
