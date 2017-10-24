@@ -2,3 +2,23 @@
 analisis/.Rproj.user
 analisis/.RData
 analisis/.Rhistory
+.Rproj.user
+
+# No nos interesan tampoco los html creados por R Studio en analisis/
+analisis/*html
+
+# Dentro de reportes/, no nos interesan los archivos temporales de LaTeX
+reporte/*.out
+reporte/*.aux
+reporte/*.bbl
+reporte/*.blg
+reporte/*.log
+reporte/*.toc
+reporte/*.dvi
+reporte/*.lot
+reporte/*.lof
+reporte/*.bcf
+reporte/*.ptc
+reporte/*.ind
+reporte/*.idx
+reporte/*.ilg

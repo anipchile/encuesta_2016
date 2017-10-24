@@ -1,8 +1,8 @@
 ---
 title: "Análisis de datos de la encuesta de personas"
 author: "Cristian Bravo Lillo (cristian@bravolillo.xyz)"
-date: "Último update: `r date()`"
-output: html_document
+date: 'Último update: `r date()`'
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -11,45 +11,38 @@ library(xtable)
 clio.root = './'
 source('lib/functions.general.r')
 source('lib/functions.graphs.r')
+
+#> Leemos los datos
+personas <- read.csv('data/personas.csv')
+trabajos <- read.csv('data/trabajos.csv')
+
+#> Al leer desde un CSV, se pierde toda la informacion relacionada con variables. Asi que tenemos que volver a crearla.
+personas$ins.cuantostrabajos <- as.numeric(personas$ins.cuantostrabajos)
+personas$ins.cuantostrabajos[ is.na(personas$ins.cuantostrabajos) ] <- 5 # Esta es la unica persona que respondio "5 o más de 5"
+personas$ins.ingreso <- factor(personas$ins.ingreso,
+															 levels=c(
+															 	'Menos de 400.000',
+															 	'Entre 400.001 y 700.000',
+															 	'Entre 700.001 y 1.200.000',
+															 	'Entre 1.200.001 y 2.000.000',
+															 	'Entre 2.000.001 y 3.500.000',
+															 	'Entre 3.500.001 y 6.000.000',
+															 	'Más de 6.000.000'
+															 ))
+
+#> Creamos algunas variables necesarias para calculos intermedios
+personas.enchile <- personas[
+	personas$bio.resideenchile,
+	c('Response.ID','bio.edad','bio.genero','bio.essostenedor', 'bio.cuantoshijos',
+		'ins.ingreso','ins.tienetrabajo','ins.cuantostrabajos','ins.anhelo.academico','ins.prom.percepcion',
+		'aporte.numarticulos','aporte.numlibros','aporte.numproyectos.gana',
+		'sit.tiene.msc','sit.tiene.phd','sit.tiene.pos'
+	)
+	]
+row.names(personas.enchile) <- NULL
 opts_chunk$set(echo = TRUE)
 ```
 
-## Datos de la muestra
-```{r, echo=FALSE}
-
-	#> Leemos los datos
-	personas <- read.csv('data/personas.csv')
-	trabajos <- read.csv('data/trabajos.csv')
-
-	#> Al leer desde un CSV, se pierde toda la informacion relacionada con variables. Asi que tenemos que volver a crearla.
-	personas$ins.cuantostrabajos <- as.numeric(personas$ins.cuantostrabajos)
-	personas$ins.cuantostrabajos[ is.na(personas$ins.cuantostrabajos) ] <- 5 # Esta es la unica persona que respondio "5 o más de 5"
-	personas$ins.ingreso <- factor(personas$ins.ingreso,
-																 levels=c(
-																 	'Menos de 400.000',
-																 	'Entre 400.001 y 700.000',
-																 	'Entre 700.001 y 1.200.000',
-																 	'Entre 1.200.001 y 2.000.000',
-																 	'Entre 2.000.001 y 3.500.000',
-																 	'Entre 3.500.001 y 6.000.000',
-																 	'Más de 6.000.000'
-																 ))
-
-	#> Creamos algunas variables necesarias para calculos intermedios
-	personas.enchile <- personas[
-		personas$bio.resideenchile,
-		c('Response.ID','bio.edad','bio.genero','bio.essostenedor', 'bio.cuantoshijos',
-		  'ins.ingreso','ins.tienetrabajo','ins.cuantostrabajos','ins.anhelo.academico','ins.prom.percepcion',
-		  'aporte.numarticulos','aporte.numlibros','aporte.numproyectos.gana',
-		  'sit.tiene.msc','sit.tiene.phd','sit.tiene.pos'
-		  )
-		]
-	row.names(personas.enchile) <- NULL
-
-	#> /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	#> /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-```
 En total, tenemos `r nrow(personas)` encuestados, que reportaron tener `r nrow(trabajos)` trabajos. Las siguientes dos tablas muestran la frecuencia de encuestados con y sin magíster, con y sin doctorado, y con y sin postdoctorado.
 ```{r, echo=FALSE}
 
@@ -58,17 +51,17 @@ En total, tenemos `r nrow(personas)` encuestados, que reportaron tener `r nrow(t
 	numgrafico <- 1
 
 	#> Tabla de contingencia
-	# thesecols <- c('sit.cursando.posgrado','sit.tiene.posgrado','sit.cursando.pos','sit.tiene.pos')
-	# theserownames <- c('No cursa posgrado,<br>no tiene posgrado','No cursa posgrado,<br>tiene posgrado',
-	# 			'Cursa posgrado,<br>no tiene posgrado','cursa posgrado,<br>tiene posgrado')
-	# thesecolnames <- c('No cursa postdoc,<br>no tiene postdoc','No cursa postdoc,<br>tiene postdoc',
-	# 			 'Cursa postdoc,<br>no tiene postdoc','Cursa postdoc,<br>tiene postdoc')
-	# largetable <- as.matrix(ftable(personas[,thesecols], row.vars = c('sit.cursando.posgrado','sit.tiene.posgrado')))
-	# rownames(largetable) <- theserownames
-	# colnames(largetable) <- thesecolnames
-	# knitr::kable(largetable, caption=paste('Tabla ',numtabla,': Contingencia de posgrados y postdocs (frecuencia)', sep=''))
-	# numtabla <- numtabla+1
-	# rm(largetable,thesecols,theserownames,thesecolnames)
+	thesecols <- c('sit.cursando.posgrado','sit.tiene.posgrado','sit.cursando.pos','sit.tiene.pos')
+	theserownames <- c('No cursa posgrado,<br>no tiene posgrado','No cursa posgrado,<br>tiene posgrado',
+				'Cursa posgrado,<br>no tiene posgrado','cursa posgrado,<br>tiene posgrado')
+	thesecolnames <- c('No cursa postdoc,<br>no tiene postdoc','No cursa postdoc,<br>tiene postdoc',
+				 'Cursa postdoc,<br>no tiene postdoc','Cursa postdoc,<br>tiene postdoc')
+	largetable <- as.matrix(ftable(personas[,thesecols], row.vars = c('sit.cursando.posgrado','sit.tiene.posgrado')))
+	rownames(largetable) <- theserownames
+	colnames(largetable) <- thesecolnames
+	knitr::kable(largetable, caption=paste('Tabla ',numtabla,': Contingencia de posgrados y postdocs (frecuencia)', sep=''))
+	numtabla <- numtabla+1
+	rm(largetable,thesecols,theserownames,thesecolnames)
 
 	largetable <- as.matrix(ftable(list(
 		personas$sit.tiene.msc[ personas$bio.genero=='Femenino' ],
@@ -122,8 +115,6 @@ La regresión anterior no es muy robusta, sin embargo. Se realizó un diagnósti
 ```{r, echo=FALSE}
 #> Analisis: Reg. Log. sobre personas$ins.tienetrabajo con variables sociodemograficas y de aporte. Que factores influyen mas en que
 #> la persona tenga trabajo?
-
-
 reg <- glm(formula = ins.tienetrabajo ~ bio.edad + bio.genero + aporte.numarticulos + aporte.numlibros + aporte.numproyectos.gana
 		 + sit.tiene.msc + sit.tiene.phd + sit.tiene.pos,
 		 data = personas.enchile, family = binomial)
