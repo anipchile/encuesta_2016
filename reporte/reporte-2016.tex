@@ -2,15 +2,56 @@
 \input{structure}
 
 \title{Reporte Encuesta ANIP 2016}
-\author{Cristian Bravo Lillo}
+\author{Varios autores}
 \date{\today}
 
 \begin{document}
 \maketitle
 
+\section{Introducción}
+
+\section{Análisis}
+
+[Aquí va algo sobre las preguntas que queremos responder.]
+
+\subsection{Frecuencias}
+
+El cuadro \ref{tab:count} presenta la cantidad de encuestados que cursan y/o poseen posgrado (filas), y que cursan y/o poseen un posdoctorado (columnas). La mayor parte de los encuestados no estaba (al momento de la encuesta) cursando un posgrado y poseía un posgrado. De estos, la mayor parte de ellos ni cursa ni posee un posdoctorado.
+
+Los cuadros \ref{tab:countwomen} y \ref{tab:countmen} presentan la frecuencia de mujeres y hombres, respectivamente, que poseen un master (MsC), un doctorado (PhD) y/o un posdoctorado. Los números entre paréntesis en el cuadro \ref{tab:countwomen} corresponden al porcentaje sobre el total de mujeres; ocurre de manera similar en el cuadro \ref{tab:countmen}.
+
 \input{tablas/tab-count1}
 \input{tablas/tab-countwomen}
 \input{tablas/tab-countmen}
+
+\subsection{¿Qué factores influyen sobre el que la persona tenga trabajo?}
 \input{tablas/tab-reg1}
+
+En el cuadro \ref{tab:reg1} se presenta una regresión logística realizada para responder la pregunta de qué factores influyen sobre el que las personas tengan trabajo. Las variables de entrada estudiadas son las siguientes:
+
+\begin{itemize}
+\item \textbf{bio.edad}: Corresponde a la edad reportada por cada persona.
+\item \textbf{bio.genero (masculino)}: Corresponde al género de la persona. El análisis está hecho usando el género femenino como base de comparación.
+\item \textbf{aporte.numarticulos}: Corresponde al número de artículos publicados por la persona.
+\item \textbf{aporte.numlibros}: Corresponde al número de libros publicados por la persona.
+\item \textbf{aporte.numproyectos.gana}: Corresponde al número de proyectos de investigación concursados que la persona ha ganado.
+\item \textbf{sit.tiene.msc (TRUE)}: Corresponde a si la persona tiene o no un máster. La base de comparación es que la persona no lo tenga.
+\item \textbf{sit.tiene.phd (TRUE)}: Corresponde a si la persona tiene o no un doctorado. La base de comparación es que la persona no lo tenga.
+\item \textbf{sit.tiene.pos (TRUE)}: Corresponde a si la persona tiene o no un posdoctorado. La base de comparación es que la persona no lo tenga.
+\end{itemize}
+
+De las variables anteriores, tanto tener un doctorado ($e=0.75$, $p=0.0031$) como el número de artículos ($e=0.0982$, $p=0.0019$) influyen de manera significativa sobre el que la persona tenga trabajo. De éstas, la primera variable es la que tiene mayor influencia.
+
+\subsection{Regresión 2}
+\input{tablas/tab-reg2}
+
+\subsection{Regresión 3}
+\input{tablas/tab-reg3}
+
+\subsection{Regresión 4}
+\input{tablas/tab-reg4}
+
+\subsection{Regresión 5}
+\input{tablas/tab-reg5}
 
 \end{document}

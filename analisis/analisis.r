@@ -52,12 +52,12 @@ largetable <- as.matrix(
 )
 rownames(largetable) <- c('No cursa posgrado, no tiene posgrado','No cursa posgrado, tiene posgrado',
 													'Cursa posgrado, no tiene posgrado','cursa posgrado, tiene posgrado')
-colnames(largetable) <- c('No cursa postdoc, no tiene postdoc','No cursa postdoc, tiene postdoc',
-													'Cursa postdoc, no tiene postdoc','Cursa postdoc, tiene postdoc')
-thistable <- xtable(largetable,
-										caption='Número de encuestados, según si poseen posgrado y/o postdocs.',
+colnames(largetable) <- c('No cursa posdoc., no tiene posdoc.','No cursa posdoc., tiene posdoc.',
+													'Cursa posdoc., no tiene posdoc.','Cursa posdoc., tiene posdoc.')
+thistable <- xtable(cf.asPercentage(largetable, frequency = TRUE, keepfrequency = TRUE),
+										caption='Total de encuestados, según si poseen posgrado y/o posdoctorado. Se entiende posgrado como máster o doctorado.',
 										label='tab:count',
-										align=c('|p{3cm}|','r|','r|','r|','r|'), digits=0)
+										align=c('p{3cm}|','p{2cm}|','p{2cm}|','p{2cm}|','p{2cm}'), digits=0)
 print(thistable, file=paste(out.path,'tablas/tab-count1.tex', sep=''))
 
 #> Tabla de doble entrada: número de mujeres/hombres con MsC y/o PhD
@@ -72,17 +72,22 @@ writeCountTable <- function(gender, thiscaption, thislabel, thisfile) {
 			row.vars = c(1,2)
 		)
 	)
-	largetable <- rbind(largetable, colSums(largetable))
-	largetable <- cbind(largetable, rowSums(largetable))
-	rownames(largetable) <- c('No tiene MsC, No tiene PhD', 'No tiene MsC, Tiene PhD',
-														'Tiene MsC, No tiene PhD', 'Tiene MsC, Tiene PhD', 'Subtotal')
-	colnames(largetable) <- c('No tiene Postdoc', 'Tiene Postdoc', 'Subtotal')
-	thistable <- xtable(largetable, caption=thiscaption, label=thislabel, digits=0)
+#	largetable <- rbind(largetable, colSums(largetable))
+#	largetable <- cbind(largetable, rowSums(largetable))
+	rownames(largetable) <- c('No tiene máster ni doctorado', 'No tiene máster, sí tiene doct.',
+														'Tiene máster, no tiene doct.', 'Tiene máster y doct.')#, 'Subtotal')
+	colnames(largetable) <- c('No tiene posdoc.', 'Tiene posdoc.')#, 'Subtotal')
+	thistable <- xtable(cf.asPercentage(largetable, frequency = TRUE, keepfrequency = TRUE),
+											caption=thiscaption, label=thislabel, digits=0)
 	print(thistable, file=paste(out.path, 'tablas/', thisfile, sep=''))
 }
 
-writeCountTable('Femenino', 'Número de mujeres con Msc y/o Phd.', 'tab:countwomen', 'tab-countwomen.tex')
-writeCountTable('Masculino', 'Número de hombres con Msc y/o Phd.', 'tab:counmen', 'tab-countmen.tex')
+writeCountTable('Femenino',
+								'Número de mujeres con máster, doctorado, y/o posdoctorado.',
+								'tab:countwomen', 'tab-countwomen.tex')
+writeCountTable('Masculino',
+								'Número de hombres con máster, doctorado, y/o posdoctorado.',
+								'tab:countmen', 'tab-countmen.tex')
 rm(writeCountTable, largetable, thistable)
 
 

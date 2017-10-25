@@ -19,4 +19,5 @@ El directorio **analisis/** contiene código en [R](https://www.r-project.org/) 
 
 Para generar las tablas y gráficos (asumiendo un ambiente con R 3.4.0 o superior instalado, con la librería 'xtable'):
 
+	% cd analisis
 	% R --no-save < analisis.r
