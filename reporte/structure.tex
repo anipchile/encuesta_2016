@@ -1,4 +1,14 @@
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=2.3cm,headsep=10pt,letterpaper]{geometry} % Page margins
 \usepackage{graphicx}
+\graphicspath{{imagenes/}} % Specifies the directory where pictures are stored
 \usepackage[spanish]{babel}
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage[utf8]{inputenc} % Required for including letters with accents
+
+\newcommand{\incluirimagen}[3]{
+	\begin{figure}[h]\centering
+		\includegraphics[width=0.6\textwidth]{#1}
+		\caption{#2}
+		\label{#3}
+	\end{figure}
+}
