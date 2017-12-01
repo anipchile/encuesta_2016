@@ -6,9 +6,16 @@
 \usepackage[utf8]{inputenc} % Required for including letters with accents
 
 \newcommand{\incluirimagen}[3]{
-	\begin{figure}[h]\centering
+	\begin{figure}[h!]\centering
 		\includegraphics[width=0.6\textwidth]{#1}
 		\caption{#2}
 		\label{#3}
 	\end{figure}
+}
+\newcommand{\incluirtabla}[3]{
+	\begin{table}\centering
+		\includegraphics[width=0.6\textwidth]{#1}
+		\caption{#2}
+		\label{#3}
+	\end{table}
 }

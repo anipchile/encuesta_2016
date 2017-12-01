@@ -1,32 +1,151 @@
 \documentclass{article}
-\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=2.3cm,headsep=10pt,letterpaper]{geometry} % Page margins
-\usepackage{graphicx}
-\graphicspath{{imagenes/}} % Specifies the directory where pictures are stored
-\usepackage[spanish]{babel}
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
-\usepackage[utf8]{inputenc} % Required for including letters with accents
+\input{structure}
 
-\newcommand{\incluirimagen}[3]{
-	\begin{figure}[h]\centering
-		\includegraphics[width=0.6\textwidth]{#1}
-		\caption{#2}
-		\label{#3}
-	\end{figure}
-}
-\title{Reporte Encuesta ANIP 2016}
-\author{Varios autores}
+\title{Reporte 1ª Encuesta Inserción ANIP 2016}
+\author{Cristian Olivos, Claudio Astudillo, Cristian Bravo Lillo}
 \date{\today}
 
 \begin{document}
 \maketitle
+\tableofcontents
 
 \section{Introducción}
+
+Los resultados de un estudio de la Organización para la Cooperación y Desarrollo Económicos (OCDE) sobre alfabetización en adultos confirman la importancia que tiene la formación del capital humano en el funcionamiento de los mercados del trabajo y para el éxito económico y progreso social, tanto de los individuos como de las sociedades (OCDE, 2000). En efecto, se ha planteado que sin la incorporación de conocimiento un país tendrá problemas para insertarse en la economía global y que, en este sentido, la dotación de profesionales es un factor vital para el progreso social y económico (Meller y Rappoport, 2004).
+
+En este contexto, a pesar de que el Estado de Chile entrega becas para la formación de profesionales en el extranjero desde el año 1981, nuestro país aún se sitúa lejos de las cifras internacionales, especialmente de los países de la OCDE, en términos del número de egresados anuales de programas de posgrado y del número de investigadores por millón de habitantes (CONICYT, 2013).
+
+Posiblemente este hecho se vea reflejado en los bajos niveles de inversión en Investigación y Desarrollo  (I+D) que tiene Chile respecto a sus pares. Por ejemplo, en 2014 nuestro país invirtió el 0,38\% del PIB en I+D, la proporción más baja entre los países que integran la OCDE, siendo el promedio de inversión en I+D el 2,36\% del PIB.
+(Aquí va una imagen)
+
+\subsection{Personal en Investigación y Desarrollo}
+
+La proporción de investigadores  dedicados a actividades de investigación y desarrollo en Chile durante 2014 fue de 2,96 investigadores por cada mil trabajadores, cifra muy por debajo de Dinamarca (21,29 investigadores cada mil habitantes), del promedio de la Unión Europea (11,2 investigadores cada mil trabajadores) y de Argentina (3,87 investigadores cada mil trabajadores) (Ministerio de Economía, 2016).
+
+Ambos factores, tanto el gasto en I+D como la cantidad de investigadores, son importantes para diversificar la matriz productiva (pasar de ser exportador de recursos naturales a utilizar el conocimiento para poder exportarlo y generar valor). De no contar con el impulso necesario, se considera que tomaría décadas para que el gasto llegue al 1\% del PIB (La Tercera, 2016).
+
+Consideramos importante conocer y entender los factores que están detrás de estos indicadores, los que parecieran mantenerse en los años a pesar de las acciones que los gobiernos toman respecto a políticas públicas multisectoriales relativas a la gestión del conocimiento.
+
+Chile ha diseñado estrategias para la formación de capital humano avanzado utilizando recursos públicos tales como el Programa de Formación de Capital Humano Avanzado. Este programa entrega becas para cursar estudios de postgrado en Chile o en el extranjero donde, una vez que el becario finaliza sus estudios, debe retornar al país para retribuir el conocimiento obtenido bajo ciertas condiciones definidas por las bases de la beca. Aun así, las cifras no parecieran mejorar a pesar de las cuantiosas inversiones para la formación, inserción y desarrollo de profesionales que pueden generar y gestionar conocimiento avanzado.
+
+Resulta conveniente entonces evaluar la situación actual de los beneficiarios de becas y los programas de inserción laboral, revisar la institucionalidad y los diversos actores involucrados en la ciencia, tecnología e innovación y conocer la percepción de los beneficiarios sobre el funcionamiento del sistema de becas para efectuar una correcta valoración y determinar si es necesario proponer mejoras a la situación, ya que al estar comprometidos fondos públicos, es una problemática que nos incumbe a todos los chilenos.
+
+\subsection{Preguntas y objetivos}
+Las preguntas y objetivos que guiaron el desarrollo de la presente investigación son:
+
+\begin{itemize}
+    \item Cuál es el beneficio o aporte que realizan los beneficiarios del Programa de Formación de Capital Humano Avanzado de Conicyt a Chile?
+    \item ¿Qué es la retribución y cómo retribuyen los beneficiarios del Programa de Formación de Capital Humano Avanzado de Conicyt al país?
+    \item ¿Cuáles son las condiciones laborales bajo las que se insertan los beneficiarios del Programa de Formación de Capital Humano de Conicyt en Chile?
+    \item ¿Cuál es el rol del Estado en materia de ciencia, tecnología e innovación para Chile?
+    \item ¿Cuál es la visión del Estado sobre el desarrollo económico, social y cultural del país?
+\end{itemize}
+
+\subsection{Objetivo General}
+
+Realizar un análisis descriptivo y propuestas de mejora a la inserción, retribución y aporte al país de los magísteres y doctorados que recibieron financiamiento con recursos públicos entre 2008 y 2016 para la realización de sus estudios en Chile o en el extranjero.
+
+\subsubsection{Objetivos específicos}
+
+\begin{itemize}
+    \item Identificar los fundamentos teóricos que guían al Estado chileno en la definición de políticas públicas sobre capital humano avanzado.
+    \item Describir la normativa e institucionalidad chilena relacionada con la formación de capital humano avanzado en Chile para conocer la evolución de ésta.
+    \item Proponer constructos sobre inserción, retribución y aporte como variables claves para la evaluación del capital humano avanzado en Chile.
+    \item Analizar la situación actual de inserción, retribución y aporte de los beneficiarios a Chile en relación a la normativa vigente chilena y sus instituciones en materia de capital humano avanzado.
+    \item Proponer mejoras para la inserción, retribución y aporte de los magísteres y doctorados en Chile.
+\end{itemize}
+
+\subsection{Marco Teórico}
+
+\subsubsection{Sociedad del Conocimiento}
+A partir de las últimas tres décadas del siglo XX los avances tecnológicos incrementaron la velocidad de intercambio de información y facilitaron la difusión de conocimientos, haciendo que los beneficios de estos avances generen impacto en una gran cantidad de personas en poco tiempo.
+
+De acuerdo a Mateo (2006), el saber y el conocimiento son los parámetros que gobiernan y condicionan la estructura y composición de la sociedad actual y son, también, las mercancías e instrumentos determinantes del bienestar y progreso de los pueblos. Para Romhardt, el conocimiento se debe entender como información asimilada subjetivamente y exige su apropiación específica, activa e individual (Citado en Zillien, 1998, p.6). 
+
+Paul Drucker, pensador austríaco y uno de los principales teóricos del management, fue quien popularizó el término Sociedad del Conocimiento, que describe una sociedad donde las relaciones de factores productivos se alteran, junto con los cambios que se producen en diversos planos sociales.
+
+“El conocimiento es ahora el recurso esencial. La tierra, el trabajo y el capital son limitados. Con ellos, el conocimiento no puede producir; sin ellos, incluso la gestión no puede actuar. Pero donde hay una aplicación efectiva del conocimiento hacia el conocimiento, los otros recursos pueden siempre ser movilizados. Ese conocimiento se ha convertido en el recurso, en vez de un simple recurso, y ello es lo que convierte a nuestra sociedad en una sociedad postcapitalista. Ha cambiado la estructura de la sociedad. Ha creado nuevas dinámicas sociales y económicas, además de una nueva política”. (Drucker, 1993).
+
+Desde el punto de vista económico, la importancia del conocimiento como factor productivo radica en las transformaciones que puede generar en los tres clásicos factores (tierra, trabajo y capital), pudiendo ser formulado en forma de patentes, procesos comerciales, bases de datos, entre otros, pudiendo incrementarse a través de la investigación y el desarrollo, pero también a través de continuas innovaciones y mejoras de procesos y productos (Dietzi, 2011).
+
+El impacto en el trabajo se aprecia en cómo se mide el rendimiento laboral, pasando de la clásica estimación de productos elaborados dividido por horas de trabajo, al rendimiento ligado estrechamente al conocimiento de los trabajadores con producción intangible. Esto obliga a la constante práctica y formación de los trabajadores, a aplicar estos conocimientos de manera creativa para que produzca beneficios a la empresa, cobrando aún mayor importancia la formación y motivación de sus empleados (ibídem).
+
+El conocimiento se basa en dos pilares fundamentales: uno es investigación, desarrollo e innovación (I+D+i), que crea nuevos conocimientos y mejoras en otros ya establecidos y el otro es la enseñanza, que transmite los conocimientos existentes (Mateo, 2006, p. 148)
+
+La enseñanza y la calidad de la misma son claves en la evolución y desarrollo de las sociedades, ya que repercuten directamente en cómo se comportan las personas, en la destreza de los trabajadores, y en la competitividad económica para la atracción de inversiones (que son mayores donde haya mano de obra experta y adiestrada). Si al otro pilar, el de la creación de dichos conocimientos, se agrega la capacidad para manipular, almacenar y transmitir grandes cantidades de información de forma económica (que facilita e intensifica la aplicación del conocimiento a la actividad económica), esto se transforma en el factor predominante en la creación de riqueza. Se considera que del 70 al 80\% del crecimiento económico es gracias al nuevo y mejor conocimiento (Mateo 2006). La interrelación entre conocimiento, ciencia y tecnología, investigación y desarrollo, enseñanza, bienes y servicios se pueden plasmar en el siguiente esquema:
+
+\incluirimagen{image003.png}{Esquema de Innovación.}{fig:figura}
+
+Fuente: La Sociedad del Conocimiento (Mateo, 2006).
+
+La innovación es el conjunto de las actividades antes descritas en el orden temporal indicado en el gráfico anterior, que además de los elementos científicos y técnicos, incluye elementos económicos y sociales (Mateo, 2006, pp. 148 - 149).
+
+La definición más utilizada a nivel general (gobiernos, organismos internacionales, empresas consultoras y otros) es la que la OCDE entrega en el Manual de Oslo (Guía para la Recogida en Interpretación de Datos Sobre Innovación):
+
+Una innovación es la introducción de un nuevo, o significativamente mejorado, producto (bien o servicio), de un proceso, de un nuevo método de comercialización o de un nuevo método organizativo, en las prácticas internas de la empresa, la organización del lugar de trabajo o las relaciones exteriores. (OCDE, 2005).
+
+Santelices (2015) denomina como sistema de innovación al proceso complejo cuyos resultados están influidos por un tejido empresarial (porcentaje de empresas innovadoras), recursos para I+D+i (infraestructura de apoyo para innovación empresarial), política tecnológica (intervención gubernamental en el proceso económico mediante regulación y distribución de recursos), y finalmente el entorno socio económico para la innovación (relacionado a educación, capital humano y recursos financieros para los riesgos de la innovación).
+
+Cuando se producen descubrimientos científicos, existe la posibilidad de buscar aplicaciones prácticas de éstos a la producción de bienes y servicios. Este fenómeno es conocido como procesos de transferencia de conocimiento. Un modelo de transferencia, conocido como Modelo Lineal de Innovación (Freeman, 1995; en Santelices 2015), proponía que el cambio tecnológico era un proceso unidireccional que nace con el descubrimiento básico (ciencia), seguido por el surgimiento de aplicaciones prácticas (innovación). Se privilegia la oferta de conocimiento y concibe a la innovación y su difusión como un proceso relativamente sencillo. 
+
+Otro modelo indica que el conocimiento es demandado, siendo las ventas el primer eslabón de la cadena. Durante los años setenta, y tras análisis teóricos y empíricos, se demostró que ninguno de los modelos propuestos predecía el acople entre ciencia, tecnología y mercado (Santelices, 2015). Este mismo autor señala que gracias a estos estudios surge el modelo interactivo, considerado como más representativo de la innovación industrial. Su inicio es el análisis de mercados potenciales, luego conceptualiza el invento o producto para aquellos mercados, conteniendo diversas retroalimentaciones y conexiones entre las necesidades del mercado, rediseño del producto y búsqueda de conocimiento (que ya existe o que es novedad). El principal impacto de este modelo es que orientó el apoyo de las políticas de innovación a las distintas fases del proceso y no tan solo a la etapa inicial como en los comienzos.
+
+El desarrollo económico y la sociedad del conocimiento son temáticas que están constantemente presentes en documentos oficiales, en las declaraciones de las autoridades a la prensa, en la discusión política, en discursos presidenciales y en otras instancias. Esto hace necesario conocer cómo es que el generador de política pública entiende a las políticas públicas y las múltiples acepciones que rodean al término.
+
+\subsubsection{Políticas Públicas}
+
+Al momento de definir el concepto de política pública, la literatura no ofrece una definición unívoca del término, al contrario, se hace necesaria una revisión de semántica en el idioma inglés y también analizar diversos autores y sus respectivas definiciones.
+Roth (2002) indica que, mientras en español, la palabra política posee diversas dimensiones, el inglés posee una palabra específica que explica diferentes ámbitos. Por ejemplo, \textit{polity} hace mención a la política concebida como el ámbito del gobierno de las sociedades humanas; \textit{politics} se refiere a la política como actividad de organización y lucha por el control del poder;
+por último, policy define la designación de los propósitos y programas de las autoridades
+públicas. En este trabajo nos enfocaremos precisamente en esta última definición, debido a que
+la inserción, retribución y aporte del capital humano avanzado son asuntos de dominio de un
+programa público.
+Como mencionamos con anterioridad, existen múltiples definiciones de política (policy). A
+continuación, mencionaremos algunas de ellas.
+
+\begin{itemize}
+\item Heclo y Wildavsky (1974): “una política pública es una acción gubernamental dirigida
+hacia el logro de objetivos fuera de ella misma”.
+\item Meny y Thoening (1989): “la acción de las autoridades públicas en el seno de la
+sociedad. / Programa de acción de una autoridad pública”.
+\item Dubnick (1983): “[…] está constituida por las acciones gubernamentales – lo que los
+gobiernos dicen y lo que hacen con relación a un problema o una controversia (issue)–“
+\item Hogwood (1984): “para que una política pueda ser considerada como una política
+pública, es preciso que en un cierto grado haya sido producida o por lo menos tratada al
+interior de un marco de procedimientos, de influencias y de organizaciones
+gubernamentales”.
+\item Muller y Surel (1998): “designa el proceso por el cual se elaboran y se implementan
+programas de acción pública, es decir, dispositivos político-administrativos coordinados,
+en principio, alrededor de objetivos específicos”.
+Muller (2002) identifica cinco elementos que pueden fundamentar la existencia de una política
+pública, a saber:
+\item Una política pública está constituida por un conjunto de medidas concretas que
+conforman la verdadera “substancia” de una política pública;
+\item Comprende unas decisiones o una forma de asignación de los recursos “cuya
+naturaleza es más o menos autoritaria”. Ya sea de manera explícita o tan solo latente, la
+coerción siempre está presente;
+\item Una política pública se inscribe en un “marco general de acción”, lo que permite
+distinguir a una política pública de simples medidas aisladas. El problema es saber si
+este marco general debe ser concebido de antemano por el decisor, o simplemente
+reconstruido a posteriori por el investigador;
+\item Una política pública tiene un público, es decir unos individuos, grupos u organizaciones
+cuya situación está afectada por esa política. Algunos de ellos serán pasivos, mientras
+otros se organizarán para influir en la elaboración o en la puesta en marcha de los
+programas políticos;
+\item Por último, una política pública define metas y objetivos a lograr, definidos en función de
+normas y de valores.
+Conociendo estas definiciones que determinan el accionar del Estado respecto a una
+problemática y cómo los gobiernos toman decisiones para enfrentarlas, nos enfocaremos en las
+políticas públicas relacionadas a la formación y atracción de capital humano avanzado, por lo
+tanto, nuestro primer paso para obtener esta definición es entender el concepto de capital
+humano.
+\end{itemize}
 
 \section{Análisis}
 
 [Aquí va algo sobre las preguntas que queremos responder.]
 
-\incluirimagen{placeholder.jpg}{Este es el texto que apacerá debajo.}{fig:figura}
+\incluirimagen{image000.png}{Este es el texto que aparecerá debajo.}{fig:figura}
 
 \subsection{Frecuencias}
 
@@ -67,5 +186,590 @@ De las variables anteriores, tanto tener un doctorado ($e=0.75$, $p=0.0031$) com
 
 \subsection{Regresión 5}
 \input{tablas/tab-reg5}
+
+\section{Resultados}
+En esta sección, presentamos la tabulación de las respuestas recogidas a través de la encuesta descrita en la sección anterior.
+
+\subsection{Inserción factual}
+
+\incluirimagen{image000.png}{¿Tiene algún trabajo en la actualidad? \textbf{Fuente}: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.}{fig000}
+
+De un total de 426 encuestados, 338 personas (79\%) dicen tener trabajo en la actualidad. Sin embargo, lo positivo que esta cifra puede representar se ve disminuido (hasta cierto punto) por el tiempo para encontrar trabajo (figuras \ref{fig000} y \ref{fig001}), por la cantidad de trabajos (gráficos 19 a 21), y por los datos sobre seguros médicos que los beneficiarios reportan.
+
+\incluirimagen{image000.png}{Gráfico 18. Tiempo para encontrar trabajo (Magíster). \textbf{Fuente}: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.}{fig001}
+
+En el gráfico anterior, se puede observar que en general la mayor parte de los beneficiarios se demoran menos de 6 meses en encontrar trabajo desde que comienzan a buscar. Sin embargo, 20 de 178 personas (11.2\%) no encontró trabajo.
+
+Gráfico 19. Tiempo para encontrar trabajo (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, se observa una tendencia similar al de los beneficiarios con grado de magíster. 203 de 333 (un 60\%) encontró trabajo en menos de 6 meses. Sin embargo, 47 de 333 (un 14\%) no encontró trabajo. Esta cifra es preocupante, considerando que la inversión en un doctorado es, tanto desde el punto de vista del beneficiario como del Estado, mucho mayor que para un magíster.
+
+Gráfico 20. Número de trabajos (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, 31 de 79 magísteres (39\%) declara no tener ningún trabajo, valor que puede ser explicado por la proporción de personas que, contando con un grado de magíster, se encuentren cursando un doctorado.
+
+Gráfico 21. Número de trabajos (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 85\% de quienes tienen grado de doctor tiene al menos 1 trabajo, y también se debe destacar el 15\% que no tiene trabajo, ya que es una cifra mucho mayor que la cifra de desempleo nacional 6,4\% (INE, 2017).
+
+Gráfico 22. Número de trabajos (Magíster + Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 19,5\% de los encuestados manifiesta no tener trabajo, a pesar de ser personas con alta calificación. Por otro lado, el 60\% de ellos indica que tiene un solo trabajo.
+
+Gráfico 23. Horas trabajadas a la semana
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 37\% de los encuestados indica que tiene un trabajo que tiene 45 horas a la semana. Destaca también el 8\% de personas que manifiestan trabajar más de 45 horas, lo que excede a lo estipulado como máximo legal sin incluir horas extras (45 horas semanales como máximo legal).
+
+Gráfico 24. Proporción de personas que tienen algún tipo de seguro o previsión
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+De un total de 337 encuestados, 297 (88\%) indica contar con algún tipo de seguro o previsión. Sin embargo, un 12\% de personas que no tiene ningún tipo de protección deja en evidencia la precariedad de condiciones laborales.
+
+Gráfico 25. Financiamiento de seguro
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior destaca la similitud de proporciones entre quienes reciben financiamiento para el seguro y quienes deben financiarlo con sus propios recursos (46\% versus 44\%).
+
+Gráfico 26. Tipo de seguro
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el tipo de seguro más común es Isapre (61\%), seguido por Fonasa (22\%). La categoría “otro” describe generalmente seguros públicos o privados de países extranjeros, tales como TK en Alemania y NHS en Reino Unido.
+
+Gráfico 27. Evaluación cobertura del seguro
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 29\% considera que su seguro cubre totalmente los riesgos que su ocupación tiene. Considerando el rango desde 5 a 7, el 67\% evalúa de manera favorable la cobertura.
+
+Gráfico 28. Proporción de personas que cuentan con oficina o laboratorio propio
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+De un total de 450 encuestados, 379 (84\%) indica no contar con algún tipo de oficina o laboratorio propio.
+
+Gráfico 29. Financiamiento de la oficina o laboratorio
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, 40 encuestados (33\%) señalan como fuente de financiamiento el acuerdo con su institución, siguiéndole FONDECYT con 24 (20\%) y otros tipos de financiamiento (15\%), los que incluyen al Programa de Atracción e Inserción de CONICYT, y también personas que utilizan fondos propios.
+
+Gráfico 30. Tipo de vínculo laboral
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, 144 personas (32\%) poseen contrato a honorarios y 97 (22\%) a plazo fijo, mientras que el 19\% de ellos tiene contrato indefinido, lo que denota el precario vínculo laboral que tienen estos encuestados. También cabe mencionar el porcentaje de personas que se encuentran sin contrato (4\%) y con acuerdo de palabra (4\%), que pese a ser cifras bajas, no dejan de ser variables importantes.
+
+\subsection{Percepción de Inserción}
+
+Pregunta: ¿Cómo calificaría su experiencia de inserción laboral en Chile?
+
+Gráfico 31. Percepción de inserción (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, 63 magísteres (41\%) califican su inserción como “muy mala” (considerando las calificaciones desde 1 a 3). 
+
+Gráfico 32. Percepción de inserción (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, se observa una tendencia similar a las personas que poseen grado de magíster. 141 de 315 encuestados (45\%) califica su inserción laboral con nota 1.
+
+Gráfico 33. Satisfacción con los ingresos
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, las personas que evalúan positivamente sus ingresos (con notas 5, 6 y 7) representan el 59\% del total de encuestados (213 personas).
+
+Pregunta: Considerando todos sus trabajos, ¿cree que debería disponer de más tiempo para investigar? 
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+De un total de 257 encuestados, 166 personas (62\%) mencionan que requieren más tiempo para investigar en la semana.
+
+Gráfico 34. Cantidad de horas de aumento semanales para investigación
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 48\% (80 encuestados) indican que el tiempo para investigar debe aumentar hasta 10 horas a la semana.
+
+Gráfico 35. Relación de formación con trabajo (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 66\% de los encuestados con grado de magíster indica que su trabajo actual tiene total relación con lo estudiado.
+
+Gráfico 36. Relación de formación con trabajo (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, un 69\% de los encuestados indica que su trabajo actual tiene total relación con lo estudiado, apreciándose una tendencia similar a la vista en el gráfico anterior.
+
+Gráfico 37. Relación de formación con trabajo (Magíster + Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 59\% de las personas indica que la relación entre el trabajo actual y su formación tiene total relación. Esto en sintonía con ambos gráficos anteriores.
+
+Gráfico 38. Satisfacción con beneficios
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 5 a 7 de las respuestas posibles, se aprecia una satisfacción general (52\% del total) con los beneficios que el trabajo le reporta.
+
+Gráfico 39. Satisfacción con condiciones de trabajo
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 5 a 7 de las respuestas posibles, se aprecia una satisfacción general (62\% del total) con las condiciones de trabajo le reporta.
+
+Gráfico 40. Satisfacción con estabilidad laboral
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 1 a 3 de las respuestas posibles, se aprecia una insatisfacción generalizada (52\% del total) con la estabilidad laboral, cifra muy distinta a las apreciadas en otro tipo de satisfacciones.
+
+Gráfico 41. Satisfacción con estatus social
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 5 a 7 de las respuestas posibles, se aprecia satisfacción generalizada (62\% del total) con el estatus social que el trabajo le reporta.
+
+Gráfico 42. Satisfacción con independencia
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 5 a 7 de las respuestas posibles, se aprecia una satisfacción general (72\% del total) con la independencia que el trabajo le reporta.
+
+Gráfico 43. Satisfacción con responsabilidad
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 5 a 7 de las respuestas posibles, se aprecia una satisfacción general (78\% del total) con la responsabilidad que el trabajo le exige tener.
+
+Gráfico 44. Satisfacción con la posibilidad de progreso
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 5 a 7 de las respuestas posibles, se aprecia una satisfacción general (55\% del total) con la posibilidad de progreso que el trabajo le entrega.
+
+Gráfico 45. Satisfacción con salario
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 5 a 7 de las respuestas posibles, se aprecia una satisfacción general (53\% del total) con el salario percibido.
+
+Gráfico 46. Riesgo a la integridad física
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, el 50\% de los encuestados indica que su actividad laboral no reporta algún tipo de riesgo a la integridad física
+
+Gráfico 47. Riesgo a la integridad psicológica
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 1 a 3 de las respuestas posibles, el 59\% de los encuestados indica que su actividad laboral no reporta algún tipo de riesgo a la integridad psicológica. Cabe mencionar que un 28\% de los encuestados reporta un grado alto de riesgo a la integridad psicológica.
+
+Gráfico 48. Riesgo a la salud en general
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 1 a 3 de las respuestas posibles, el 65\% de los encuestados indica que su actividad laboral no reporta algún tipo de riesgo a la salud en general.
+
+Gráfico 49. Riesgo a la seguridad personal y familiar
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, al considerar el rango de 1 a 3 de las respuestas posibles, el 69\% de los encuestados indica que su actividad laboral no reporta algún tipo de riesgo a la seguridad personal y familiar.
+
+\subsection{Retribución} 
+
+Gráfico 50. Proporción de personas cuyo financiamiento les obligó a retornar Chile.
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+De un total de 79 encuestados, 44 (56\%) mencionan que su financiamiento les obligó a retornar a Chile. Sin embargo, 30 personas (38\%) no respondieron esta pregunta. De un total de 79 encuestados, 25 (32\%) mencionan que ya han retornado a Chile. Sin embargo, 43 personas (54\%) tampoco respondieron esta pregunta.
+
+Gráfico 51. Cantidad de meses que demoró en retornar a Chile (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior se aprecia que gran cantidad de personas con grado de magíster (76\% del total) retornó en menos de seis meses luego de haber concluido sus estudios.
+
+Gráfico 52. Cantidad de meses que demoró en retornar a Chile (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior se aprecia que importante proporción de personas con grado de doctor (91\% del total) retorno en menos de seis meses después de haber concluido sus estudios.
+
+\subsection{Aporte}
+
+Gráfico 53. Proporción de personas que han realizado publicaciones
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Respecto a la cantidad de publicaciones que las personas han realizado, de 79 encuestados, un 81\% contestó afirmativamente.
+
+Gráfico 54. Cantidad de artículos publicados (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior se aprecia que el 70\% de los encuestados con grado de magíster ha publicado entre 1 y 4 artículos.
+
+Gráfico 55. Cantidad de artículos publicados (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior se observa que, de 301 encuestados con grado de doctor, el 58\% ha publicado entre 1 y 9 artículos. Es esperable que la proporción de doctores con publicaciones sea mayor debido a la naturaleza del grado de doctorado, orientada a la investigación y producción de conocimiento, la que se difunde mediante publicaciones.
+
+Gráfico 56. Cantidad de artículos publicados (Magíster y Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Aquí podemos observar la misma tendencia del gráfico anterior ya que, de 112 personas que poseen ambos grados académicos, el 78\% ha realizado entre 1 y 9 publicaciones.
+
+Gráfico 57. Cantidad de artículos publicados en revistas ISI (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior se aprecia que el 53\% de magísteres ha publicado entre 1 y 3 artículos en revistas ISI.
+
+Gráfico 58. Cantidad de artículos publicados en revistas ISI (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior se observa que, de 225 encuestados con grado de doctor, el 77\% ha publicado entre 1 y 9 artículos en revistas ISI. Nuevamente es una proporción de doctores esperable de acuerdo a la naturaleza de su grado académico.
+
+Gráfico 59. Cantidad de publicaciones en revistas ISI (Magíster + Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Aquí podemos observar una tendencia similar a la del gráfico anterior: de 112 personas que poseen ambos grados, el 72\% ha realizado entre 1 y 9 publicaciones en revistas ISI.
+
+Gráfico 60. Cantidad de artículos publicados como primer autor (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior podemos apreciar que, de 64 magísteres, el 61\% indica que ha escrito entre 1 a 4 artículos como primer autor. También se debe mencionar que el 31\% de éstos nunca ha escrito un artículo en esta calidad.
+
+Gráfico 61. Cantidad de artículos publicados como primer autor (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, de 225 encuestados, se observa que la proporción de doctores que han publicado alguna vez artículos como primer autor es de un 92\%.
+
+Gráfico 62. Cantidad de artículos publicados como primer autor (Magíster y Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior observamos que la proporción de personas que tienen grados de magíster y doctorado que han publicado artículos como primer autor es del 88\%.
+
+Gráfico 63. Cantidad de libros publicados (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico se observa que, de los 64 magísteres encuestados, el 88\% nunca ha publicado un libro.
+
+Gráfico 64. Cantidad de libros publicados (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico se observa que, de los 225 doctores que respondieron esta pregunta, el 93\% tampoco ha publicado un libro
+
+Gráfico 65. Cantidad de libros publicados (Magíster + Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico podemos ver que, quienes poseen ambos grados, un 24\% de ellos afirma haber publicado alguna vez algún libro en su trayectoria profesional.
+
+Gráfico 66. Cantidad de capítulos publicados (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, se observa que un 34\% de magísteres han publicado algún capítulo en libros.
+
+Gráfico 67. Cantidad de capítulos publicados (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior, se observa que un 28\% de doctores han publicado algún capítulo en libros.
+
+Gráfico 68. Cantidad de capítulos publicados (Magíster + Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En el gráfico anterior se aprecia que, de 112 personas con grados de magíster y doctor, un 47\% ha publicado algún capítulo en libros.
+
+Gráfico 69. Cantidad de patentes inscritas (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico se observa que, de 79 encuestados con grado de magíster, el 95\% de ellos no tiene patentes inscritas a su nombre.
+
+Gráfico 70. Cantidad de patentes inscritas (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Tal como en el gráfico anterior, de 229 doctores que contestaron la pregunta, un 91\% de ellos no posee patentes inscritas a su nombre.
+
+Gráfico 71. Cantidad de patentes inscritas (Magíster + Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico se vuelve a apreciar la que existe entre investigadores y el sector productivo ya que, 117 personas que poseen grados académicos de magíster y doctor a la vez, el 94\% no posee patentes inscritas.
+
+Gráfico 72. Cantidad de obras inscritas con propiedad intelectual (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico se puede apreciar que, de 79 encuestados con grado de magíster, el 14\% de ellos ha inscrito obras con propiedad intelectual.
+
+Gráfico 73. Cantidad de obras inscritas con propiedad intelectual (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Respecto a los doctores, el 7\% indica haber inscrito obras con propiedad intelectual.
+
+Gráfico 74. Cantidad de obras inscritas con propiedad intelectual (Magíster +Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En línea con los dos gráficos anteriores, podemos observar que, de 117 personas que poseen ambos grados académicos, el 17\% de ellos posee una o más obras inscritas con propiedad intelectual.
+
+Gráfico 75. ¿En qué área se enmarca su trabajo?
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico se observa que un 76\% de los encuestados manifiesta que su trabajo está vinculado a la academia (universidad pública y privada, además de los centros de investigación). Cabe mencionar el bajo porcentaje de personas que trabajan en la empresa privada (6\%) y en la administración pública (4\%).
+
+Gráfico 76. Proporción de personas que pertenecen a alguna red de investigadores (Magíster)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Para el caso de personas con grado de magíster, el 51\% manifiesta que sí participa de algún tipo de asociación de investigadores, profesionales y/o científicos, mientras que el 49\% restante no lo hace.
+
+Gráfico 77. Proporción de personas que pertenecen a alguna red de investigadores (Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+De manera similar a las personas que tienen grado de magíster, las personas con grado de doctor manifestaron que el 64\% pertenece a una red de investigadores, mientras que el 36\% restante no forma parte de éstas.
+
+Gráfico 78. Proporción de personas que pertenecen a alguna red de investigadores (Magíster + Doctorado)
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Respecto a la pertenencia asociación a redes de investigadores para quienes cuentan con ambos grados, el 64\% de los encuestados indica que sí forma parte de alguna red, lo que reafirma la tendencia positiva anterior, tanto para las personas que tiene grado de magíster, como de doctorado.
+
+\subsection{Género} 
+
+A continuación, se presenta el análisis realizado a aspectos relevantes de inserción y percepción de inserción, por género.
+
+Gráfico 79. Actividad laboral actual del encuestado.
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Del total de los encuestados que respondieron esta pregunta (n=426), para ambos géneros el mayor porcentaje se concentra en las personas que sí tienen trabajo, con un 46\% para hombres y un 34\% para mujeres. Por otro lado, para aquellos que respondieron negativamente a la pregunta, el porcentaje de personas que no cuentan con trabajo es similar para ambos géneros (10\% masculino y 11\% femenino).
+
+Gráfico 80. Tipo de vínculo laboral por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Ante la pregunta “¿qué tipo de relación laboral tiene en este trabajo?”, se observa que los hombres en su mayoría tienen contratos a plazo indefinido (15,7\%), seguido del contrato a honorarios (14,2\%) y el contrato a plazo fijo (13,6\%); también se aprecia que la cantidad de varones que no tienen contrato o se encuentran trabajando con acuerdo de palabra es notablemente menor (0,9\% y 0,6\% del total, respectivamente). En tanto, las mujeres son contratadas principalmente a honorarios (11,8\%), siguiéndole el contrato a plazo fijo (9,8\%) y contrato a plazo indefinido (8,9\%).
+
+Gráfico 81. Cantidad de trabajos que tiene una persona con grado de magíster por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Para ambos géneros, tener un solo trabajo constituye el mayor porcentaje de las respuestas, con un 38\% para hombres y un 27\% para mujeres, luego se aprecia una tendencia a la baja en los porcentajes al momento de manifestar tener más de un trabajo. También destaca el hecho de que existe un 7\% para ambos géneros que no cuenta con trabajo.
+
+Gráfico 82. Cantidad de trabajos que tiene una persona con grado de doctorado por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Para el género masculino, los mayores porcentajes se concentran en los doctores que indican estar desempleados y los que manifiestan tener un solo trabajo (19\% para ambas situaciones). Con respecto al género femenino, la alternativa con más respuestas (20\% del total) es la que indica estar desempleada, mientras que, para las alternativas de uno y dos empleos, un 16\% indicó estar en esa categoría respectivamente.
+
+Gráfico 83. Cantidad de trabajos que tiene una persona con magíster y doctorado por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este gráfico, el mayor porcentaje de los hombres encuestados indicar tener un sólo trabajo (36\%), luego esa cifra decae a un 11\% cuando las personas con ambos grados manifiestan tener dos trabajos y decae aún más en quienes tienen tres trabajos. Cabe destacar el 8\% que menciona estar desempleado. Para las mujeres la situación es similar, ya que quienes cuentan con un sólo trabajo es el 24\%, mientras que quienes tienen dos empleos comprenden el 8\% de las respuestas. También debemos señalar que el 11\% de las mujeres que poseen ambos grados se encuentran desempleadas.
+
+Gráfico 84. Tiene/no tiene seguro o previsión de salud por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Del total de encuestados, el 52\% de los varones manifiesta que cuenta con un seguro o previsión de salud, mientras que un 6\% no lo posee. Por otra parte, el 36\% de las mujeres indica tener un seguro de salud, cifra menor en comparación al género masculino, mientras que quienes no poseen esta previsión de salud alcanzan el 6\%, misma cifra que el género masculino.
+
+Gráfico 85. ¿Quién paga las cotizaciones legales de salud? Distribución por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Con respecto al género masculino, el empleador es quien concentra el mayor porcentaje de respuestas con un 26\%, muy de cerca le sigue la propia persona, quien costea su propio seguro, con un 21\%, principalmente. Situación similar se aplica para el género femenino, siendo el empleador quien abarca el mayor porcentaje de respuestas con un 18\%, siguiéndole la propia persona con un 14\%.
+
+Gráfico 86. Percepción de inserción laboral por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+Este gráfico describe la percepción de las personas, a quienes se les pide que asignen una nota dependiendo de su opinión, donde 1 significa “muy malo” y 7 “muy bueno”. Del total de encuestados, la respuesta más frecuente fue la nota uno, situación común para ambos géneros (12\% de hombres y un 13\% de mujeres). Por otro lado, en el caso del género masculino, si se consideran las notas de 5 a 7, el 26\% de los encuestados evalúa que su inserción fue positiva, mientras que, para el género femenino, considerando las notas de uno a tres, un 21\% considera mala su inserción laboral, lo que reafirma lo anteriormente dicho con respecto a este género.
+
+Gráfico 87. Satisfacción con estabilidad laboral por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En una escala de notas de 1 a 7 (donde 1 es “muy malo” y 7 es “muy bueno”), al considerar las notas “buenas” de 5 a 7, el género masculino califica su estabilidad laboral de forma positiva con un 26\% del total. Por otro lado, el género femenino calificó con nota 1 su satisfacción laboral, el más alto porcentaje en la escala con un 13\%, lo que demuestra lo insatisfechas que se sienten las mujeres en este aspecto.
+
+Gráfico 88. Relación de formación con trabajo por género
+
+\incluirimagen{image000.png}{insert coin}{fig:figura}
+
+Fuente: Elaboración propia en base a Primera Encuesta de Inserción Laboral ANIP 2017.
+
+En este caso, ambos géneros calificaron con la nota máxima la relación que tiene su formación académica con su actual trabajo.
+
 
 \end{document}
