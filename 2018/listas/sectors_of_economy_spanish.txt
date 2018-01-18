@@ -1,0 +1,32 @@
+A1;Sector Primario:Agricultura y recolección
+A2;Sector Primario:Minería y extracción de canteras
+A3;Sector Primario:Silvicultura
+A4;Sector Primario:Pastoreo
+A5;Sector Primario:Caza
+A6;Sector Primario:Pesca
+A7;Sector Secundario:Elaboración de metal y fundición
+A8;Sector Secundario:Producción de automóviles
+A9;Sector Secundario:Producción textil
+A10;Sector Secundario:Industrias químicas y de ingeniería
+A11;Sector Secundario:Fabricación aeroespacial
+A12;Sector Secundario:Servicios públicos de energía
+A13;Sector Secundario:Ingeniería
+A14;Sector Secundario:Construcción y la construcción naval
+A15;Sector Terciario:Ventas al por menor y al por mayor
+A16;Sector Terciario:Transporte
+A17;Sector Terciario:Distribución
+A18;Sector Terciario:Entretenimiento
+A19;Sector Terciario:Restaurantes
+A20;Sector Terciario:Servicios de oficina
+A21;Sector Terciario:Medios de comunicación
+A22;Sector Terciario:Turismo
+A23;Sector Terciario:Seguros
+A24;Sector Terciario:Banca
+A25;Sector Terciario:Salud
+A26;Sector Terciario:Servicios legales
+A27;Sector Cuaternario:Gobierno
+A28;Sector Cuaternario:Cultura
+A29;Sector Cuaternario:Bibliotecas
+A30;Sector Cuaternario:Investigación científica
+A31;Sector Cuaternario:Educación
+A32;Sector Cuaternario:Tecnologías de la información

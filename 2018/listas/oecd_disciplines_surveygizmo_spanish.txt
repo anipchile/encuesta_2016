@@ -11,8 +11,8 @@ A10;Ingeniería y Tecnología:Ingeniería Ambiental
 A11;Ingeniería y Tecnología:Ingeniería Civil
 A12;Ingeniería y Tecnología:Ingeniería de los Materiales
 A13;Ingeniería y Tecnología:Ingeniería Eléctrica, Electrónica e Informática
-A14;Ingeniería y Tecnología;Ingeniería Mecánica
-A15;Ingeniería y Tecnología;Ingeniería Médica
+A14;Ingeniería y Tecnología:Ingeniería Mecánica
+A15;Ingeniería y Tecnología:Ingeniería Médica
 A16;Ingeniería y Tecnología:Ingeniería Química
 A17;Ingeniería y Tecnología:Nanotecnología
 A18;Ingeniería y Tecnología:Otra
@@ -21,7 +21,7 @@ A20;Ciencias Médicas y de la Salud:Ciencias de la Salud
 A21;Ciencias Médicas y de la Salud:Medicina Básica
 A22;Ciencias Médicas y de la Salud:Medicina Clínica
 A23;Ciencias Médicas y de la Salud:Otra
-A24;Ciencias Agrícolas:"Agricultura, Silvicultura y Pesca"
+A24;Ciencias Agrícolas:Agricultura, Silvicultura y Pesca
 A25;Ciencias Agrícolas:Biotecnología Agrícola
 A26;Ciencias Agrícolas:Ciencias Animales y Lácteos
 A27;Ciencias Agrícolas:Ciencias Veterinarias
@@ -35,8 +35,8 @@ A34;Ciencias Sociales:Periodismo y Comunicaciones
 A35;Ciencias Sociales:Psicología
 A36;Ciencias Sociales:Sociología
 A37;Ciencias Sociales:Otra
-A38;Humanidades:"Arte (Artes, Historia del Arte, Artes Escénicas, Música)"
-A39;Humanidades:"Filosofía, Ética y Religión"
+A38;Humanidades:Arte (Artes, Historia del Arte, Artes Escénicas, Música)
+A39;Humanidades:Filosofía, Ética y Religión
 A40;Humanidades:Historia y Arqueología
 A41;Humanidades:Lenguaje y Literatura
 A42;Humanidades:Otra
